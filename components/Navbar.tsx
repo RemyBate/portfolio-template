@@ -14,7 +14,7 @@ export default function Navbar() {
         <Link href="/" className="font-semibold text-xl">Remy<span className="text-indigo-600">Dev</span></Link>
         <button className="sm:hidden p-2" onClick={() => setOpen(v => !v)} aria-label="Menu">☰</button>
         <div className="hidden sm:flex items-center gap-6">
-          <a href="#about" className="hover:text-indigo-600">About</a>
+          <a href="about" className="hover:text-indigo-600">About</a>
           <a href="#projects" className="hover:text-indigo-600">Projects</a>
           <a href="#contact" className="hover:text-indigo-600">Contact</a>
           <a href="#contact" className="rounded-lg bg-indigo-600 text-white px-4 py-2">Hire me</a>
@@ -22,7 +22,7 @@ export default function Navbar() {
       </nav>
       {open && (
         <div className="sm:hidden border-t">
-          <Item href="#about" label="About" />
+          <Item href="about" label="About" />
           <Item href="#projects" label="Projects" />
           <Item href="#contact" label="Contact" />
         </div>
