@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaReact, FaNodeJs, FaPhp, FaHtml5, FaJs, FaCss3Alt } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript, SiPrisma, SiTailwindcss, SiMysql } from "react-icons/si";
 
 export const metadata = {
   title: "About – Remy",
@@ -8,8 +10,8 @@ export const metadata = {
 
 export default function AboutPage() {
   const skills = [
-    "Next.js", "TypeScript", "Prisma", "Tailwind CSS",
-    "React", "Node.js", "PostgreSQL/MySQL", "REST/JSON",
+    "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "PHP",
+    "Prisma", "Tailwind CSS", "React", "Node.js", "MySQL", "REST/JSON",
   ];
 
   const highlights = [
@@ -54,7 +56,7 @@ export default function AboutPage() {
 
       {/* Highlights */}
       <section className="mt-12 grid gap-4 sm:grid-cols-3">
-        {highlights.map(h => (
+        {highlights.map((h) => (
           <div key={h.label} className="border rounded-xl p-5 bg-white">
             <div className="text-2xl font-semibold">{h.value}</div>
             <div className="text-gray-600 text-sm">{h.label}</div>
@@ -67,7 +69,7 @@ export default function AboutPage() {
         <h2 className="text-2xl font-bold">Skills</h2>
         <p className="text-gray-600 mt-2">Technologies I use frequently.</p>
         <div className="mt-6 flex flex-wrap gap-2">
-          {skills.map(s => (
+          {skills.map((s) => (
             <span key={s} className="text-sm rounded-full border px-3 py-1 bg-gray-50">
               {s}
             </span>
@@ -75,7 +77,49 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Experience / Timeline (simple) */}
+      {/* Tech Stack (icons) */}
+      <section className="mt-16">
+        <h2 className="text-2xl font-bold">Tech Stack</h2>
+        <p className="text-gray-600 mt-2">Tools and technologies I work with daily.</p>
+
+        <div className="mt-8 grid grid-cols-3 sm:grid-cols-6 gap-6 text-4xl text-gray-700">
+          <div className="flex flex-col items-center gap-2">
+            <SiNextdotjs /> <span className="text-sm">Next.js</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <SiTypescript className="text-blue-600" /> <span className="text-sm">TypeScript</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaJs className="text-yellow-400" /> <span className="text-sm">JavaScript</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaHtml5 className="text-orange-500" /> <span className="text-sm">HTML</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaCss3Alt className="text-blue-500" /> <span className="text-sm">CSS</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaPhp className="text-indigo-600" /> <span className="text-sm">PHP</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaReact className="text-cyan-500" /> <span className="text-sm">React</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <FaNodeJs className="text-green-600" /> <span className="text-sm">Node.js</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <SiPrisma className="text-gray-600" /> <span className="text-sm">Prisma</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <SiTailwindcss className="text-sky-400" /> <span className="text-sm">Tailwind</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <SiMysql className="text-blue-800" /> <span className="text-sm">MySQL</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience / Timeline */}
       <section className="mt-16">
         <h2 className="text-2xl font-bold">Experience</h2>
         <div className="mt-6 space-y-6">
@@ -91,7 +135,8 @@ export default function AboutPage() {
             <div className="font-semibold">Personal Projects</div>
             <div className="text-gray-600 text-sm">Ongoing</div>
             <p className="text-gray-700 mt-2">
-              LendingApp, SkillSpot, and reusable UI kits for faster delivery.
+              Restaurant Website Template, Portfolio Template, and E-Commerce Starter —
+              practical templates that help clients and developers launch quickly.
             </p>
           </div>
         </div>
