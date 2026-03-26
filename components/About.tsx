@@ -69,7 +69,7 @@ export default function About() {
                 <span className="font-bold">Phone:</span> +49 15208520081
               </p>
               <p>
-                <span className="font-bold">Email:</span> email@example.com
+                <span className="font-bold">Email:</span> remybatem@gmail.com
               </p>
 
               <p>
