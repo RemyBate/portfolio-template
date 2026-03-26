@@ -1,32 +1,34 @@
-'use client'
-import Link from 'next/link'
-import { useState } from 'react'
+import Link from "next/link";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-  const Item = ({ href, label }: { href: string; label: string }) => (
-    <a href={href} className="block px-4 py-2 hover:text-indigo-600">{label}</a>
-  )
-
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
-      <nav className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link href="/" className="font-semibold text-xl">Remy<span className="text-indigo-600">Dev</span></Link>
-        <button className="sm:hidden p-2" onClick={() => setOpen(v => !v)} aria-label="Menu">☰</button>
-        <div className="hidden sm:flex items-center gap-6">
-          <a href="about" className="hover:text-indigo-600">About</a>
-          <a href="#projects" className="hover:text-indigo-600">Projects</a>
-          <a href="#contact" className="hover:text-indigo-600">Contact</a>
-          <a href="#contact" className="rounded-lg bg-indigo-600 text-white px-4 py-2">Hire me</a>
-        </div>
-      </nav>
-      {open && (
-        <div className="sm:hidden border-t">
-          <Item href="about" label="About" />
-          <Item href="#projects" label="Projects" />
-          <Item href="#contact" label="Contact" />
-        </div>
-      )}
+    <header className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-bold text-black">
+          Remy<span className="text-violet-600">Dev</span>
+        </Link>
+
+        <nav className="flex items-center gap-6">
+          <Link href="/" className="text-gray-700 hover:text-violet-600 font-medium">
+            Landing Page
+          </Link>
+          <Link href="/about" className="text-gray-700 hover:text-violet-600 font-medium">
+            About Me
+          </Link>
+          <Link href="/projects" className="text-gray-700 hover:text-violet-600 font-medium">
+            Projects
+          </Link>
+          <Link href="/contact" className="text-gray-700 hover:text-violet-600 font-medium">
+            Contact
+          </Link>
+          <Link
+            href="/contact"
+            className="bg-violet-600 hover:bg-violet-700 text-white px-5 py-2 rounded-lg font-semibold transition"
+          >
+            Hire Me
+          </Link>
+        </nav>
+      </div>
     </header>
-  )
+  );
 }

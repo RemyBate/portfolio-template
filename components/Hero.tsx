@@ -2,44 +2,68 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="container mx-auto px-4 py-16 sm:py-24">
-      <div className="grid gap-10 sm:grid-cols-2 items-center">
-        
-        {/* Profile Picture on the Left */}
-        <div className="justify-self-center">
-          <Image
-            src="/avatar.jpg"
-            alt="Remy"
-            width={192}
-            height={192}
-            className="rounded-2xl object-cover shadow"
-          />
-        </div>
+    <section
+      id="landing"
+      className="relative min-h-screen bg-white overflow-hidden"
+    >
+      {/* RIGHT IMAGE (NO OVERLAY = FULL BRIGHTNESS) */}
+      <div className="absolute top-0 right-0 h-full w-full md:w-[60%]">
+        <Image
+          src="/remy-hero.jpg"
+          alt="Remy"
+          fill
+          priority
+          className="object-cover object-center brightness-105 contrast-105"
+        />
+      </div>
 
-        {/* Text on the Right */}
-        <div>
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
-            Hi, I’m <span className="text-indigo-600">Remy</span> — I build fast,
-            modern web apps.
+      {/* TEXT CONTENT */}
+      <div className="relative z-10 max-w-7xl mx-auto min-h-screen px-6 md:px-2 flex items-center">
+        <div className="w-full md:w-[55%] lg:w-[50%]">
+          
+          <h1 className="text-4xl md:text-4xl font-bold leading-tight text-gray-900 mb-8">
+            Welcome to my Portfolio!
           </h1>
-          <p className="mt-4 text-gray-600">
-            Full-stack developer focused on Next.js, Prisma and Tailwind. Need a clean
-            landing page or a starter app? I deliver in days, not weeks.
-          </p>
-          <div className="mt-6 flex gap-3">
-            <a
-              href="#contact"
-              className="rounded-lg bg-indigo-600 text-white px-5 py-3"
-            >
-              Hire me
-            </a>
+
+          <div className="space-y-4 text-gray-700 text-lg md:text-xl">
+            <p className="font-medium">Remy Bate Mbu</p>
+
+            <p className="font-semibold text-gray-900">
+              Web Application Developer
+            </p>
+
+            <p>
+              I build modern, responsive and user-friendly web 
+            </p>
+
+             <p>
+              applications for businesses and individuals.
+            </p>
+
+            <p>
+              Specialized in Next.js, React, TypeScript, Prisma and Tailwind CSS.
+            </p>
+
+            <p>Based in Germany</p>
+          </div>
+
+          {/* BUTTONS */}
+          <div className="mt-8 flex gap-4">
             <a
               href="#projects"
-              className="rounded-lg border px-5 py-3"
+              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition"
             >
-              See projects
+              View Projects
+            </a>
+
+            <a
+              href="#contact"
+              className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition"
+            >
+              Contact Me
             </a>
           </div>
+
         </div>
       </div>
     </section>
