@@ -6,7 +6,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         {/* Heading */}
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold text-gray-800">ABOUT</h2>
+          <h2 className="text-4xl font-bold text-gray-800">ABOUT ME</h2>
           <div className="w-14 h-1 bg-cyan-500 mx-auto mt-4"></div>
         </div>
 
@@ -31,13 +31,14 @@ export default function About() {
         {/* Main content */}
         <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Left image */}
-          <div className="flex justify-center md:justify-start">
-            <div className="relative w-[420px] h-[420px] bg-pink-200 overflow-hidden">
+          <div className="flex justify-center">
+            <div className="bg-white p-4 rounded-xl shadow-lg">
               <Image
                 src="/remy.jpg"
                 alt="Remy"
-                fill
-                className="object-cover"
+                width={500}
+                height={400}
+                className="object-contain rounded-lg brightness-120 contrast-120"
               />
             </div>
           </div>
@@ -53,7 +54,8 @@ export default function About() {
                 <span className="font-bold">Birthday:</span> 12 July 1983
               </p>
               <p>
-                <span className="font-bold">Age:</span> 40
+                <span className="font-bold">Age:</span> 42
+            
               </p>
 
               <p>
