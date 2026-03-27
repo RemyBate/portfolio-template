@@ -1,3 +1,4 @@
+import { FaPaperPlane } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -23,8 +24,9 @@ export default function Navbar() {
           </Link>
           <Link
             href="/contact"
-            className="bg-violet-600 hover:bg-violet-700 text-white px-5 py-2 rounded-lg font-semibold transition"
+            className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-5 py-2 rounded-lg shadow-md hover:scale-105 transition"
           >
+             <FaPaperPlane />
             Hire Me
           </Link>
         </nav>
