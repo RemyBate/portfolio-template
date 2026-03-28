@@ -10,7 +10,7 @@ const projects = [
     tech: ["Next.js", "React", "Tailwind"],
   },
   {
-    title: "SkyRivers Limited",
+    title: "SkyRivers Limited (E-Commerce Shop)",
     description:
       "Custom WordPress business website with a responsive layout and fully functional e-commerce system.",
     image: "/projects/skyrivers.png",
@@ -36,22 +36,6 @@ const projects = [
     tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
   },
   
-  {
-    title: "E-Commerce Starter",
-    description:
-      "Simple e-commerce platform with cart functionality and clean product UI.",
-    image: "/projects/ecommerce.png",
-    link: "#",
-    tech: ["Next.js", "Prisma"],
-  },
-  {
-    title: "WhatsApp Order Form",
-    description:
-      "Order form system that sends customer orders directly via WhatsApp.",
-    image: "/projects/whatsapp.png",
-    link: "#",
-    tech: ["JavaScript"],
-  },
 ];
 
 export default function ProjectsPage() {
