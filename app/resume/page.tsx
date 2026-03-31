@@ -2,7 +2,6 @@ export default function ResumePage() {
   return (
     <main className="pt-20 min-h-screen bg-[#f7f7f7]">
       <section className="max-w-5xl mx-auto px-6 py-12">
-        {/* TITLE */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             Resume
@@ -12,7 +11,6 @@ export default function ResumePage() {
           </p>
         </div>
 
-        {/* BUTTONS (always visible) */}
         <div className="flex flex-wrap gap-4 mb-8">
           <a
             href="/resume/remy-bate-cv.pdf"
@@ -32,19 +30,18 @@ export default function ResumePage() {
           </a>
         </div>
 
-        {/* DESKTOP PDF VIEW */}
         <div className="hidden md:block bg-white rounded-xl shadow border overflow-hidden">
           <iframe
             src="/resume/remy-bate-cv.pdf"
+            title="Remy Bate Resume"
             className="w-full h-[1200px]"
           />
         </div>
 
-        {/* MOBILE MESSAGE */}
         <div className="md:hidden text-gray-600 text-center mt-6">
           <p>
             For the best experience on mobile, please tap{" "}
-            <span className="font-semibold">"Open Resume"</span> to view all pages.
+            <span className="font-semibold">Open Resume</span> to view all pages.
           </p>
         </div>
       </section>
