@@ -21,14 +21,14 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto min-h-screen px-6 md:px-2 flex items-center">
         <div className="w-full md:w-[55%] lg:w-[50%]">
           
-          <h1 className="text-4xl md:text-4xl font-bold leading-tight text-gray-900 mb-8">
+          <h1 className="text-4xl md:text-4xl font-bold leading-tight text-black-900 mb-8">
             Welcome to my Portfolio!
           </h1>
 
-          <div className="space-y-4 text-gray-700 text-lg md:text-xl">
+          <div className="space-y-4 text-black-700 text-lg md:text-xl">
             <p className="font-medium">Remy Bate Mbu</p>
 
-            <p className="font-semibold text-gray-900">
+            <p className="font-semibold text-black-900">
               Web Application Developer
             </p>
 

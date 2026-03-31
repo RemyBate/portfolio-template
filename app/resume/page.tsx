@@ -6,8 +6,9 @@ export default function ResumePage() {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
             Resume
           </h1>
-          <p className="mt-3 text-gray-600">
-            View or download my full resume below.
+          <p className="mt-3 text-gray-600 leading-7">
+            Here you can view or download my resume. It includes my education,
+            technical skills, projects, and professional background.
           </p>
         </div>
 
@@ -35,14 +36,7 @@ export default function ResumePage() {
             src="/resume/remy-bate-cv.pdf"
             title="Remy Bate Resume"
             className="w-full h-[1200px]"
-          />
-        </div>
-
-        <div className="md:hidden text-gray-600 text-center mt-6">
-          <p>
-            For the best experience on mobile, please tap{" "}
-            <span className="font-semibold">Open Resume</span> to view all pages.
-          </p>
+          ></iframe>
         </div>
       </section>
     </main>
