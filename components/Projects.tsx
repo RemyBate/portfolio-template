@@ -58,7 +58,7 @@ export default function Projects() {
     <section id="projects" className="bg-gray-50 py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold mb-2">Projects</h2>
-        <p className="text-gray-600 mb-8">
+        <p className="text-black-600 mb-8">
           Practical templates & starters you can buy or hire me to customize.
         </p>
 
@@ -81,7 +81,7 @@ export default function Projects() {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold">{p.title}</h3>
-                <p className="text-gray-600 text-sm mt-1">{p.description}</p>
+                <p className="text-black-600 text-sm mt-1">{p.description}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {p.tags.map((t) => (
                     <span key={t} className="text-xs rounded-full bg-gray-100 px-2 py-1">

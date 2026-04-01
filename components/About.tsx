@@ -11,7 +11,7 @@ export default function About() {
         </div>
 
         {/* Top text */}
-        <div className="text-center max-w-5xl mx-auto mb-10 text-gray-700">
+        <div className="text-center max-w-5xl mx-auto mb-10 text-black-700">
           <p className="text-2xl md:text-3xl mb-4">
             This is the page where you can learn more about me.
           </p>
