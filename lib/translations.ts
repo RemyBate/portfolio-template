@@ -152,7 +152,7 @@ const dict = {
       projects: "Projekte",
       resume: "Lebenslauf",
       contact: "Kontakt",
-      hireMe: "Mich engagieren",
+      hireMe: "Mich beauftragen",
       toggleMenu: "Menü umschalten",
       langEnglish: "EN",
       langGerman: "DE",
@@ -162,7 +162,7 @@ const dict = {
     },
     home: {
       title: "Willkommen auf meinem Portfolio!",
-      role: "Webentwickler",
+      role: "Fachinformatikerin für Anwendungsentwicklung",
       line1:
         "Ich entwickle moderne, responsive und benutzerfreundliche Webanwendungen für Unternehmen und Privatpersonen.",
       line2:
@@ -212,7 +212,7 @@ const dict = {
       introLead: "Auf dieser Seite können Sie mehr über mich erfahren.",
       introBody:
         "Ich bin pünktlich, motiviert und arbeite zuverlässig auch unter hoher Belastung mit hoher Qualität. Ich arbeite gut im Team, setze Vorgaben aller Ebenen um und pflege gute Zusammenarbeit mit Kolleginnen und Kollegen. Ich bin flexibel, verlässlich und sehr gewissenhaft in der Zeiteinteilung. Ich bin freundlich und aufgeschlossen, ehrlich und pünktlich; im Team und auch selbstständig arbeite ich gern zielorientiert. Ich bringe gute Zuhör- und Kommunikationsfähigkeiten mit.",
-      roleTitle: "Fachinformatiker – Anwendungsentwicklung",
+      roleTitle: "Fachinformatikerin für Anwendungsentwicklung",
       birthday: "Geburtsdatum:",
       age: "Alter:",
       website: "Website:",
