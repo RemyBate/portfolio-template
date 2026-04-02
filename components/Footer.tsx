@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-gray-900 text-white mt-16">
       <div className="max-w-7xl mx-auto px-6 py-10">
@@ -10,39 +15,36 @@ export default function Footer() {
             <h3 className="text-2xl font-bold">
               Remy<span className="text-violet-400">Dev</span>
             </h3>
-            <p className="mt-3 text-gray-300 leading-7">
-              Web Application Developer focused on building modern,
-              responsive and user-friendly web applications.
-            </p>
+            <p className="mt-3 text-gray-300 leading-7">{t("footer.tagline")}</p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4">{t("footer.quickLinks")}</h4>
             <ul className="space-y-3 text-gray-300">
               <li>
                 <Link href="/" className="hover:text-violet-400 transition">
-                  Landing Page
+                  {t("nav.landing")}
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-violet-400 transition">
-                  About Me
+                  {t("nav.about")}
                 </Link>
               </li>
               <li>
                 <Link href="/projects" className="hover:text-violet-400 transition">
-                  Projects
+                  {t("nav.projects")}
                 </Link>
               </li>
               <li>
                 <Link href="/resume" className="hover:text-violet-400 transition">
-                  Resume
+                  {t("nav.resume")}
                 </Link>
               </li>
               <li>
                 <Link href="/contact" className="hover:text-violet-400 transition">
-                  Contact
+                  {t("nav.contact")}
                 </Link>
               </li>
             </ul>
@@ -50,10 +52,10 @@ export default function Footer() {
 
           {/* Contact / Social */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect</h4>
+            <h4 className="text-lg font-semibold mb-4">{t("footer.connect")}</h4>
             <div className="space-y-3 text-gray-300">
               <p>
-                Email:{" "}
+                {t("footer.emailLabel")}{" "}
                 <a
                   href="mailto:remybate@gmail.com"
                   className="hover:text-violet-400 transition"
@@ -62,7 +64,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                Phone:{" "}
+                {t("footer.phoneLabel")}{" "}
                 <a
                   href="tel:+4915208520081"
                   className="hover:text-violet-400 transition"
@@ -71,7 +73,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                GitHub:{" "}
+                {t("footer.githubLabel")}{" "}
                 <a
                   href="https://github.com/RemyBate"
                   target="_blank"
@@ -82,7 +84,7 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                LinkedIn:{" "}
+                {t("footer.linkedinLabel")}{" "}
                 <a
                   href="https://www.linkedin.com/in/mbu-remy-bate-38642b75"
                   target="_blank"
@@ -97,7 +99,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
-          © {new Date().getFullYear()} Remy Bate Mbu. All rights reserved.
+          © {new Date().getFullYear()} Remy Bate Mbu. {t("footer.rights")}
         </div>
       </div>
     </footer>
