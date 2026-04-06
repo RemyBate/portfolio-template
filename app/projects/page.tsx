@@ -3,7 +3,12 @@
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-type ProjectPageId = "dingado" | "skyrivers" | "portfolio" | "breedbabies";
+type ProjectPageId =
+  | "dingado"
+  | "skyrivers"
+  | "portfolio"
+  | "breedbabies"
+  | "spendwise";
 
 const projects: Array<{
   id: ProjectPageId;
@@ -34,6 +39,12 @@ const projects: Array<{
     image: "/projects/breedbabies.png",
     link: "https://breedbabiesdaily.com/index.php",
     tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+  },
+  {
+    id: "spendwise",
+    image: "/projects/spendwise.png",
+    link: "https://spend-wise-omega-three.vercel.app/",
+    tech: ["Next.js", "React", "Tailwind CSS"],
   },
 ];
 

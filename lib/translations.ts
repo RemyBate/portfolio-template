@@ -134,6 +134,11 @@ const dict = {
           description:
             "Responsive business website built using a Bootstrap template with custom styling and interactive UI components.",
         },
+        spendwise: {
+          title: "SpendWise",
+          description:
+            "Income-Expenses budget tracker landing page with a clear hero, feature highlights, and friendly financial illustration.",
+        },
       } as const,
     },
     resumePage: {
@@ -278,6 +283,11 @@ const dict = {
           title: "Business-Website (Bootstrap)",
           description:
             "Responsive Business-Website auf Basis eines Bootstrap-Templates mit individuellem Styling und interaktiven Komponenten.",
+        },
+        spendwise: {
+          title: "SpendWise",
+          description:
+            "Einkommen -Ausgaben Budget-Tracker mit klarer Hero-Section, Feature-Highlights und freundlicher Finanz-Illustration.",
         },
       } as const,
     },
