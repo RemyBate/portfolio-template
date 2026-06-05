@@ -50,7 +50,7 @@ export default function About() {
               </p>
 
               <p>
-                <span className="font-bold">{t("about.website")}</span> www.example.com
+                <span className="font-bold">{t("about.website")}</span> https://remydev.de
               </p>
               <p>
                 <span className="font-bold">{t("about.degree")}</span>{" "}
