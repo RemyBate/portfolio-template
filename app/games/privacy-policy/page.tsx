@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Games Privacy Policy",
   description:
-    "Master Privacy Policy for all mobile games published by RemyDev (Remy Mbu), covering offline and online features, accounts, advertising, purchases, analytics, and data protection.",
+    "Master Privacy Policy for all mobile games, applications, and digital entertainment products published by RemyDev (Remy Mbu).",
 };
 
 const SUPPORT_EMAIL = "remymbu12@gmail.com";
 const WEBSITE_URL = "https://remydev.de";
 const PRIVACY_POLICY_URL = "https://remydev.de/games/privacy-policy";
-const LAST_UPDATED = "June 3, 2026";
+const LAST_UPDATED = "June 9, 2026";
 const PUBLISHER = "RemyDev (Remy Mbu)";
 
 export default function GamesPrivacyPolicyPage() {
@@ -50,12 +50,17 @@ export default function GamesPrivacyPolicyPage() {
             </div>
           </dl>
 
+          <p className="mt-6 text-gray-800 leading-relaxed font-medium">
+            This Privacy Policy applies to all current and future mobile games, applications, and
+            digital entertainment products published under the RemyDev brand.
+          </p>
+
           <div className="mt-6 rounded-xl border-l-4 border-violet-600 bg-violet-50 px-4 py-3 space-y-3">
             <p className="text-gray-800 leading-relaxed">
               <strong>About this policy:</strong> This is a single, reusable privacy policy for
-              all mobile games published by {PUBLISHER}. It describes the full range of features
-              that may be offered across our games, including features that any individual title may
-              not use.
+              all products published by {PUBLISHER}. It describes the full range of features that
+              may be offered across our games and applications, including features that any
+              individual title may not use.
             </p>
             <p className="text-gray-800 leading-relaxed">
               <strong>Per-game applicability:</strong> Not every game includes every feature
@@ -68,15 +73,16 @@ export default function GamesPrivacyPolicyPage() {
           <p className="mt-6 text-gray-700 leading-relaxed">
             This Privacy Policy describes how {PUBLISHER} (&quot;RemyDev&quot;, &quot;we&quot;,
             &quot;us&quot;, or &quot;our&quot;) collects, uses, stores, shares, and protects
-            information when you download, install, access, or play our mobile games on Android
-            and other supported platforms.
+            information when you download, install, access, or use our mobile games, applications,
+            and digital entertainment products on Android and other supported platforms.
           </p>
 
           <PolicySection title="1. Scope">
             <p className="mt-3 text-gray-700 leading-relaxed">
-              This policy applies to all current and future mobile games published by RemyDev,
-              regardless of title, genre, or release date. It is intended to remain valid as new
-              games are released, without requiring a separate privacy policy for each game.
+              This policy applies to all current and future mobile games, applications, and digital
+              entertainment products published under the RemyDev brand, regardless of title, genre,
+              or release date. It is intended to remain valid as new products are released, without
+              requiring a separate privacy policy for each title.
             </p>
             <p className="mt-3 text-gray-700 leading-relaxed">
               For privacy inquiries, data subject requests, or customer support, contact us at{" "}
@@ -94,11 +100,11 @@ export default function GamesPrivacyPolicyPage() {
             </p>
             <h3 className="mt-6 font-semibold text-gray-900">Online games and online features</h3>
             <p className="mt-2 text-gray-700 leading-relaxed">
-              Some games or features may require an active Internet connection — for example,
-              cloud saves, leaderboards, account sign-in, advertising, in-app purchases, analytics,
-              crash reporting, or push notifications. When you use online features, limited
-              technical information (such as device identifiers, IP address, and usage logs) may be
-              processed by us or by third-party service providers acting on our behalf.
+              Some games or features may require an active Internet connection—for example, cloud
+              saves, leaderboards, account sign-in, advertising, in-app purchases, analytics, crash
+              reporting, or push notifications. When you use online features, limited technical
+              information (such as device identifiers, IP address, and usage logs) may be processed
+              by us or by third-party service providers acting on our behalf.
             </p>
           </PolicySection>
 
@@ -181,16 +187,16 @@ export default function GamesPrivacyPolicyPage() {
             <h3 className="mt-6 font-semibold text-gray-900">Ad formats that may be used</h3>
             <PolicyList
               items={[
-                "Banner ads — advertisements displayed within the game interface",
-                "Interstitial ads — full-screen advertisements shown at natural transition points, such as between levels",
-                "Rewarded ads — optional video advertisements that you may choose to view in exchange for in-game benefits",
+                "Banner ads: advertisements displayed within the game interface",
+                "Interstitial ads: full-screen advertisements shown at natural transition points, such as between levels",
+                "Rewarded ads: optional video advertisements that you may choose to view in exchange for in-game benefits",
               ]}
             />
 
             <h3 className="mt-6 font-semibold text-gray-900">Information processed for advertising</h3>
             <p className="mt-2 text-gray-700 leading-relaxed">
               Advertising partners, including Google AdMob, may collect or receive device and usage
-              information to deliver, measure, and — where permitted by law and platform policy —
+              information to deliver, measure, and, where permitted by law and platform policy,
               personalize advertisements. This may include your advertising identifier, IP address,
               device model, operating system version, application interactions, and ad performance
               metrics.
@@ -205,10 +211,10 @@ export default function GamesPrivacyPolicyPage() {
 
           <PolicySection title="7. In-app purchases and premium upgrades">
             <p className="mt-3 text-gray-700 leading-relaxed">
-              Some games may offer in-app purchases or premium upgrades — such as ad removal,
-              content unlocks, virtual currency, subscriptions, or cosmetic items. All payments are
-              processed by the applicable app store (for example, Google Play) and are not
-              collected directly by us.
+              Some games may offer in-app purchases or premium upgrades—such as ad removal, content
+              unlocks, virtual currency, subscriptions, or cosmetic items. All payments are processed
+              by the applicable app store (for example, Google Play) and are not collected directly
+              by us.
             </p>
             <p className="mt-3 text-gray-700 leading-relaxed">
               We do not receive your full payment card or banking details. We may receive purchase
@@ -262,17 +268,17 @@ export default function GamesPrivacyPolicyPage() {
               ]}
             />
             <p className="mt-4 text-gray-700 leading-relaxed">
-              Leaderboard and achievement data is used exclusively to provide competitive and
-              progression features within the relevant game.
+              This information is used exclusively to provide competitive and progression features
+              within the relevant game.
             </p>
           </PolicySection>
 
           <PolicySection title="11. Push notifications">
             <p className="mt-3 text-gray-700 leading-relaxed">
-              Some games may request permission to send push notifications — for example, gameplay
-              reminders, feature announcements, reward availability, or re-engagement messages. Where
-              enabled, notifications are delivered through platform notification services and may
-              rely on a device token or comparable identifier.
+              Some games may request permission to send push notifications—for example, gameplay
+              reminders, feature announcements, reward availability, or re-engagement messages.
+              Where enabled, notifications are delivered through platform notification services and
+              may rely on a device token or comparable identifier.
             </p>
             <p className="mt-3 text-gray-700 leading-relaxed">
               You may disable push notifications at any time through in-game settings or your
@@ -283,8 +289,8 @@ export default function GamesPrivacyPolicyPage() {
           <PolicySection title="12. Customer support and contact forms">
             <p className="mt-3 text-gray-700 leading-relaxed">
               If you contact us for customer support, technical assistance, or privacy-related
-              inquiries — by email, an in-game contact form, or another communication channel — we
-              may collect information you voluntarily provide, including:
+              inquiries—by email, an in-game contact form, or another communication channel—we may
+              collect information you voluntarily provide, including:
             </p>
             <PolicyList
               items={[
