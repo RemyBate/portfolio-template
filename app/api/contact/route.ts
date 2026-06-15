@@ -1,7 +1,10 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const runtime = "nodejs";
+
 const CONTACT_EMAIL = "remybatem@gmail.com";
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
   try {
@@ -12,19 +15,63 @@ export async function POST(request: Request) {
     const message = typeof body.message === "string" ? body.message.trim() : "";
 
     if (!name || !email || !subject || !message) {
-      return NextResponse.json({ error: "Missing required fields." }, { status: 400 });
+      return NextResponse.json(
+        { success: false, error: "Missing required fields." },
+        { status: 400 }
+      );
     }
 
-    const gmailUser = process.env.GMAIL_USER;
-    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
+    if (!EMAIL_PATTERN.test(email)) {
+      return NextResponse.json(
+        { success: false, error: "Invalid sender email address." },
+        { status: 400 }
+      );
+    }
 
-    if (!gmailUser || !gmailAppPassword) {
-      console.error("Contact form: GMAIL_USER or GMAIL_APP_PASSWORD is not configured.");
-      return NextResponse.json({ error: "Email service is not configured." }, { status: 500 });
+    const gmailUser = process.env.GMAIL_USER?.trim();
+    const gmailAppPassword = process.env.GMAIL_APP_PASSWORD?.replace(/\s/g, "");
+
+    if (!gmailUser && !gmailAppPassword) {
+      console.error(
+        "Contact form: GMAIL_USER and GMAIL_APP_PASSWORD are not configured."
+      );
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Email service is not configured. GMAIL_USER and GMAIL_APP_PASSWORD are missing.",
+        },
+        { status: 500 }
+      );
+    }
+
+    if (!gmailUser) {
+      console.error("Contact form: GMAIL_USER is not configured.");
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Email service is not configured. GMAIL_USER is missing.",
+        },
+        { status: 500 }
+      );
+    }
+
+    if (!gmailAppPassword) {
+      console.error("Contact form: GMAIL_APP_PASSWORD is not configured.");
+      return NextResponse.json(
+        {
+          success: false,
+          error:
+            "Email service is not configured. GMAIL_APP_PASSWORD is missing.",
+        },
+        { status: 500 }
+      );
     }
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: gmailUser,
         pass: gmailAppPassword,
@@ -32,7 +79,7 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: gmailUser,
+      from: `"Portfolio Contact" <${gmailUser}>`,
       to: CONTACT_EMAIL,
       replyTo: email,
       subject: `[remydev.de] ${subject}`,
@@ -55,8 +102,12 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Contact form error:", error);
-    return NextResponse.json({ error: "Failed to send message." }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("Contact form error:", errorMessage, error);
+    return NextResponse.json(
+      { success: false, error: "Failed to send message." },
+      { status: 500 }
+    );
   }
 }
 

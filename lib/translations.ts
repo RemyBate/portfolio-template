@@ -66,7 +66,7 @@ const dict = {
       heading: "ABOUT ME",
       introLead: "This is the page where you can learn more about me.",
       introBody:
-        "I am a punctual and motivated individual who is able to work in a busy environment and produce high standards of work. I am an excellent team worker and am able to take instructions from all levels and build up good working relationships with all colleagues. I am flexible, reliable and possess excellent time keeping skills. I am a nice fun and friendly person, I am honest and punctual, I work well in a team but also on my own as I like to set goals which I will achieve, I have good listening and communication skills.",
+        "I am a motivated and detail-oriented Full-Stack Developer passionate about creating digital solutions that help businesses and individuals succeed. I enjoy building professional websites, e-commerce platforms, custom web applications, and interactive games that provide real value to users. I am committed to delivering reliable, user-friendly, and high-quality solutions while continuously learning and improving my skills. Whether working independently or collaborating with a team, I focus on problem-solving, clear communication, and achieving outstanding results.",
       roleTitle: "IT specialist - application development",
       birthday: "Birthday:",
       age: "Age:",
@@ -80,6 +80,15 @@ const dict = {
       freelanceValue: "Available",
       closing:
         "I have a creative mind and am always up for new challenges. I am well organized and always plan ahead to make sure I manage my time well.",
+      skillsHeading: "Technical Skills",
+      skillsCategories: {
+        frontend: "Frontend",
+        backend: "Backend",
+        cms: "CMS & E-Commerce",
+        database: "Database",
+        tools: "Tools & Deployment",
+        gamedev: "Game Development",
+      } as const,
     },
     footer: {
       tagline:
@@ -219,7 +228,7 @@ const dict = {
       heading: "ÜBER MICH",
       introLead: "Auf dieser Seite können Sie mehr über mich erfahren.",
       introBody:
-        "Ich bin pünktlich, motiviert und arbeite zuverlässig auch unter hoher Belastung mit hoher Qualität. Ich arbeite gut im Team, setze Vorgaben aller Ebenen um und pflege gute Zusammenarbeit mit Kolleginnen und Kollegen. Ich bin flexibel, verlässlich und sehr gewissenhaft in der Zeiteinteilung. Ich bin freundlich und aufgeschlossen, ehrlich und pünktlich; im Team und auch selbstständig arbeite ich gern zielorientiert. Ich bringe gute Zuhör- und Kommunikationsfähigkeiten mit.",
+        "Ich bin ein motivierter und detailorientierter Full-Stack-Entwickler mit der Leidenschaft, digitale Lösungen zu schaffen, die Unternehmen und Privatpersonen zum Erfolg verhelfen. Ich entwickle professionelle Websites, E-Commerce-Plattformen, individuelle Webanwendungen und interaktive Spiele, die echten Mehrwert bieten. Mir ist wichtig, zuverlässige, benutzerfreundliche und hochwertige Lösungen zu liefern und meine Fähigkeiten kontinuierlich weiterzuentwickeln. Ob eigenständig oder im Team – ich konzentriere mich auf Problemlösung, klare Kommunikation und herausragende Ergebnisse.",
       roleTitle: "Fachinformatikerin für Anwendungsentwicklung",
       birthday: "Geburtsdatum:",
       age: "Alter:",
@@ -233,6 +242,15 @@ const dict = {
       freelanceValue: "Verfügbar",
       closing:
         "Ich denke kreativ und freue mich über neue Herausforderungen. Ich arbeite strukturiert und plane vorausschauend, damit ich meine Zeit gut einteilen kann.",
+      skillsHeading: "Technische Fähigkeiten",
+      skillsCategories: {
+        frontend: "Frontend",
+        backend: "Backend",
+        cms: "CMS & E-Commerce",
+        database: "Datenbank",
+        tools: "Tools & Deployment",
+        gamedev: "Spieleentwicklung",
+      } as const,
     },
     footer: {
       tagline:

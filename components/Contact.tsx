@@ -40,8 +40,12 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send message");
+      const data = (await response.json().catch(() => null)) as
+        | { success?: boolean; error?: string }
+        | null;
+
+      if (!response.ok || data?.success !== true) {
+        throw new Error(data?.error ?? "Failed to send message");
       }
 
       setSuccessMessage(t("contact.success"));

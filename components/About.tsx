@@ -1,14 +1,39 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+const TechnicalSkills = dynamic(() => import("@/components/TechnicalSkills"), {
+  ssr: false,
+  loading: () => (
+    <div className="mt-16 pt-14 border-t border-gray-300">
+      <div className="h-12 w-64 bg-gray-200 rounded mx-auto mb-12 animate-pulse" />
+      <div className="space-y-10 w-full">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i}>
+            <div className="h-8 w-44 bg-gray-200 rounded mb-4 animate-pulse" />
+            <div className="flex flex-wrap gap-3">
+              {Array.from({ length: i === 0 ? 7 : 4 }).map((_, j) => (
+                <div
+                  key={j}
+                  className="h-14 w-36 md:w-40 bg-gray-200 rounded-lg animate-pulse"
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ),
+});
 
 export default function About() {
   const { t } = useLanguage();
 
   return (
     <section id="about" className="bg-[#f3f3f3] py-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-gray-800">{t("about.heading")}</h2>
@@ -16,23 +41,25 @@ export default function About() {
         </div>
 
         {/* Top text */}
-        <div className="text-center max-w-5xl mx-auto mb-10 text-black-700">
+        <div className="text-center mx-auto mb-10 text-black-700">
           <p className="text-2xl md:text-3xl mb-4">{t("about.introLead")}</p>
 
-          <p className="text-lg leading-9">{t("about.introBody")}</p>
+          <p className="text-[18px] md:text-[19px] leading-8 md:leading-9">
+            {t("about.introBody")}
+          </p>
         </div>
 
         {/* Main content */}
-        <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div className="grid md:grid-cols-2 gap-10 lg:gap-12 items-start">
           {/* Left image */}
-          <div className="flex justify-center">
-            <div className="bg-white p-4 rounded-xl shadow-lg">
+          <div className="flex justify-center md:justify-start">
+            <div className="bg-white p-4 rounded-xl shadow-lg w-full max-w-[520px]">
               <Image
                 src="/remy.jpg"
                 alt="Remy"
                 width={500}
                 height={400}
-                className="object-contain rounded-lg brightness-120 contrast-120"
+                className="object-contain rounded-lg brightness-120 contrast-120 w-full h-auto"
               />
             </div>
           </div>
@@ -77,6 +104,8 @@ export default function About() {
             <p className="mt-10 text-xl leading-9 text-gray-700">{t("about.closing")}</p>
           </div>
         </div>
+
+        <TechnicalSkills />
       </div>
     </section>
   );
