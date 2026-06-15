@@ -57,10 +57,10 @@ export default function Footer() {
               <p>
                 {t("footer.emailLabel")}{" "}
                 <a
-                  href="mailto:remybate@gmail.com"
+                  href="mailto:remybatem@gmail.com"
                   className="hover:text-violet-400 transition"
                 >
-                  remybate@gmail.com
+                  remybatem@gmail.com
                 </a>
               </p>
               <p>

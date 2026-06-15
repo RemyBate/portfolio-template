@@ -106,8 +106,11 @@ const dict = {
       placeholderSubject: "Subject",
       placeholderMessage: "Message",
       submit: "Send Message",
+      sending: "Sending...",
       success:
         "Thank you, your message has been sent. I will get back to you.",
+      error:
+        "Sorry, your message could not be sent. Please try again or email me directly.",
     },
     projectsPage: {
       heading: "Projects",
@@ -256,8 +259,11 @@ const dict = {
       placeholderSubject: "Betreff",
       placeholderMessage: "Nachricht",
       submit: "Nachricht senden",
+      sending: "Wird gesendet...",
       success:
         "Vielen Dank, Ihre Nachricht wurde gesendet. Ich melde mich bei Ihnen.",
+      error:
+        "Ihre Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.",
     },
     projectsPage: {
       heading: "Projekte",

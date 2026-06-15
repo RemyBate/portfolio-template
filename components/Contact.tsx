@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const CONTACT_EMAIL = "remybatem@gmail.com";
+
 export default function Contact() {
   const { t } = useLanguage();
   const [formData, setFormData] = useState({
@@ -13,6 +15,8 @@ export default function Contact() {
   });
 
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -23,17 +27,35 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSuccessMessage("");
+    setErrorMessage("");
+    setIsSubmitting(true);
 
-    setSuccessMessage(t("contact.success"));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSuccessMessage(t("contact.success"));
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch {
+      setErrorMessage(t("contact.error"));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -94,7 +116,14 @@ export default function Contact() {
                 <h3 className="text-2xl font-semibold text-gray-900">
                   {t("contact.emailHeading")}
                 </h3>
-                <p className="text-gray-700 mt-2">remybate@gmail.com</p>
+                <p className="text-gray-700 mt-2">
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="hover:text-violet-600 transition"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
+                </p>
               </div>
             </div>
 
@@ -121,6 +150,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder={t("contact.placeholderName")}
                 spellCheck={false}
+                required
                 className="w-full border border-gray-300 rounded-lg px-4 py-4
                 outline-none bg-white text-gray-900 placeholder-gray-500
                 focus:ring-2 focus:ring-violet-600 focus:border-violet-600 transition"
@@ -133,6 +163,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder={t("contact.placeholderEmail")}
                 spellCheck={false}
+                required
                 className="w-full border border-gray-300 rounded-lg px-4 py-4
                 outline-none bg-white text-gray-900 placeholder-gray-500
                 focus:ring-2 focus:ring-violet-600 focus:border-violet-600 transition"
@@ -146,6 +177,7 @@ export default function Contact() {
               onChange={handleChange}
               placeholder={t("contact.placeholderSubject")}
               spellCheck={false}
+              required
               className="w-full border border-gray-300 rounded-lg px-4 py-4
               outline-none bg-white text-gray-900 placeholder-gray-500
               focus:ring-2 focus:ring-violet-600 focus:border-violet-600 transition"
@@ -158,6 +190,7 @@ export default function Contact() {
               placeholder={t("contact.placeholderMessage")}
               rows={6}
               spellCheck={false}
+              required
               className="w-full border border-gray-300 rounded-lg px-4 py-4
               outline-none bg-white text-gray-900 placeholder-gray-500
               focus:ring-2 focus:ring-violet-600 focus:border-violet-600 transition resize-none"
@@ -166,16 +199,22 @@ export default function Contact() {
             <div className="pt-4 flex justify-center md:justify-start">
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="bg-gradient-to-r from-violet-600 to-purple-600
                 hover:from-violet-700 hover:to-purple-700
-                text-white font-semibold px-10 py-4 rounded-full transition shadow-md"
+                text-white font-semibold px-10 py-4 rounded-full transition shadow-md
+                disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                {t("contact.submit")}
+                {isSubmitting ? t("contact.sending") : t("contact.submit")}
               </button>
             </div>
 
             {successMessage && (
               <p className="text-green-600 font-medium pt-2">{successMessage}</p>
+            )}
+
+            {errorMessage && (
+              <p className="text-red-600 font-medium pt-2">{errorMessage}</p>
             )}
           </form>
         </div>
