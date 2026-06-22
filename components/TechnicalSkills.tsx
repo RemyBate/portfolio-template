@@ -2,38 +2,47 @@
 
 import type { IconType } from "react-icons";
 import {
+  FaBrain,
   FaCss3,
   FaGitAlt,
   FaGithub,
   FaHtml5,
+  FaMagic,
   FaNodeJs,
   FaPhp,
   FaReact,
+  FaRobot,
   FaServer,
   FaWordpress,
 } from "react-icons/fa";
 import {
+  SiAnthropic,
+  SiGithubcopilot,
   SiGodotengine,
   SiJavascript,
   SiMysql,
   SiNextdotjs,
+  SiOpenai,
   SiPrisma,
   SiTailwindcss,
   SiTypescript,
   SiVercel,
   SiWoocommerce,
+  SiZapier,
 } from "react-icons/si";
+import { TbCursorText } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type Skill = {
-  name: string;
+  id?: string;
+  name?: string;
   Icon: IconType;
   color: string;
 };
 
 const skillCategories: Array<{
-  id: "frontend" | "backend" | "cms" | "database" | "tools" | "gamedev";
+  id: "ai" | "frontend" | "backend" | "cms" | "database" | "tools" | "gamedev";
   skills: Skill[];
 }> = [
   {
@@ -78,10 +87,30 @@ const skillCategories: Array<{
     ],
   },
   {
+    id: "ai",
+    skills: [
+      { id: "openai", Icon: SiOpenai, color: "#10A37F" },
+      { id: "claude", Icon: SiAnthropic, color: "#D97757" },
+      { id: "cursor", Icon: TbCursorText, color: "#7C3AED" },
+      { id: "copilot", Icon: SiGithubcopilot, color: "#000000" },
+      { id: "promptEngineering", Icon: FaBrain, color: "#8B5CF6" },
+      { id: "aiAssistedDev", Icon: FaRobot, color: "#2563EB" },
+      { id: "workflowAutomation", Icon: SiZapier, color: "#FF4A00" },
+      { id: "aiContentCreation", Icon: FaMagic, color: "#EC4899" },
+    ],
+  },
+  {
     id: "gamedev",
     skills: [{ name: "Godot Engine", Icon: SiGodotengine, color: "#478CBF" }],
   },
 ];
+
+function getSkillLabel(skill: Skill, t: (path: string) => string): string {
+  if (skill.id) {
+    return t(`about.skillsItems.${skill.id}`);
+  }
+  return skill.name ?? "";
+}
 
 export default function TechnicalSkills() {
   const { t } = useLanguage();
@@ -105,9 +134,12 @@ export default function TechnicalSkills() {
             <div className="flex flex-wrap gap-3 md:gap-4">
               {category.skills.map((skill) => {
                 const SkillIcon = skill.Icon;
+                const label = getSkillLabel(skill, t);
+                const skillKey = skill.id ?? skill.name ?? "skill";
+
                 return (
                   <span
-                    key={skill.name}
+                    key={skillKey}
                     className="group inline-flex items-center gap-3 text-base md:text-lg font-medium
                     bg-white text-gray-800 border border-gray-200 px-4 py-3 md:px-5 md:py-3.5 rounded-lg
                     shadow-sm hover:shadow-md hover:border-violet-200 hover:bg-violet-50/40
@@ -119,7 +151,7 @@ export default function TechnicalSkills() {
                       style={{ color: skill.color }}
                       aria-hidden
                     />
-                    <span className="leading-snug">{skill.name}</span>
+                    <span className="leading-snug">{label}</span>
                   </span>
                 );
               })}

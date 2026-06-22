@@ -1,32 +1,8 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
+import TechnicalSkills from "@/components/TechnicalSkills";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const TechnicalSkills = dynamic(() => import("@/components/TechnicalSkills"), {
-  ssr: false,
-  loading: () => (
-    <div className="mt-16 pt-14 border-t border-gray-300">
-      <div className="h-12 w-64 bg-gray-200 rounded mx-auto mb-12 animate-pulse" />
-      <div className="space-y-10 w-full">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i}>
-            <div className="h-8 w-44 bg-gray-200 rounded mb-4 animate-pulse" />
-            <div className="flex flex-wrap gap-3">
-              {Array.from({ length: i === 0 ? 7 : 4 }).map((_, j) => (
-                <div
-                  key={j}
-                  className="h-14 w-36 md:w-40 bg-gray-200 rounded-lg animate-pulse"
-                />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  ),
-});
 
 export default function About() {
   const { t } = useLanguage();
