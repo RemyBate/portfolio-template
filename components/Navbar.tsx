@@ -1,14 +1,37 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const navItems = [
+  { href: "/", labelKey: "nav.landing" },
+  { href: "/about", labelKey: "nav.about" },
+  { href: "/projects", labelKey: "nav.projects" },
+  { href: "/resume", labelKey: "nav.resume" },
+  { href: "/contact", labelKey: "nav.contact" },
+] as const;
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname() ?? "";
   const { locale, setLocale, t } = useLanguage();
 
   const closeMenu = () => setMenuOpen(false);
+
+  const isActive = (href: string) => {
+    const current =
+      pathname.length > 1 && pathname.endsWith("/")
+        ? pathname.slice(0, -1)
+        : pathname;
+
+    if (href === "/") {
+      return current === "/";
+    }
+
+    return current === href || current.startsWith(`${href}/`);
+  };
 
   const LangToggle = ({ className = "" }: { className?: string }) => (
     <div
@@ -59,22 +82,24 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-gray-700 hover:text-violet-600 font-medium transition">
-              {t("nav.landing")}
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-violet-600 font-medium transition">
-              {t("nav.about")}
-            </Link>
-            <Link href="/projects" className="text-gray-700 hover:text-violet-600 font-medium transition">
-              {t("nav.projects")}
-            </Link>
-            <Link href="/resume" className="text-gray-700 hover:text-violet-600 font-medium transition">
-              {t("nav.resume")}
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-violet-600 font-medium transition">
-              {t("nav.contact")}
-            </Link>
+          <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
+            {navItems.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`pb-1 font-medium transition-all duration-200 border-b-2 ${
+                    active
+                      ? "text-purple-600 border-purple-600"
+                      : "text-gray-700 border-transparent hover:text-purple-600 hover:border-purple-600"
+                  }`}
+                >
+                  {t(item.labelKey)}
+                </Link>
+              );
+            })}
             <div className="flex items-center gap-2">
               <Link
                 href="/contact"
@@ -114,46 +139,28 @@ export default function Navbar() {
         {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <div className="md:hidden pb-4">
-            <nav className="flex flex-col gap-3 bg-white rounded-xl border border-gray-200 shadow-md p-4">
-              <Link
-                href="/"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-violet-600 font-medium transition"
-              >
-                {t("nav.landing")}
-              </Link>
-
-              <Link
-                href="/about"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-violet-600 font-medium transition"
-              >
-                {t("nav.about")}
-              </Link>
-
-              <Link
-                href="/projects"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-violet-600 font-medium transition"
-              >
-                {t("nav.projects")}
-              </Link>
-
-              <Link
-                href="/resume"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-violet-600 font-medium transition"
-              >
-                {t("nav.resume")}
-              </Link>
-
-              <Link
-                href="/contact"
-                onClick={closeMenu}
-                className="text-gray-700 hover:text-violet-600 font-medium transition"
-              >
-                {t("nav.contact")}
-              </Link>
+            <nav
+              className="flex flex-col gap-1 bg-white rounded-xl border border-gray-200 shadow-md p-4"
+              aria-label="Main navigation"
+            >
+              {navItems.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMenu}
+                    aria-current={active ? "page" : undefined}
+                    className={`block py-2 pl-3 font-medium transition-all duration-200 border-l-4 ${
+                      active
+                        ? "text-purple-600 border-purple-600 bg-purple-50"
+                        : "text-gray-700 border-transparent hover:text-purple-600 hover:border-purple-600"
+                    }`}
+                  >
+                    {t(item.labelKey)}
+                  </Link>
+                );
+              })}
 
               <div className="mt-2 flex flex-col gap-3">
                 <Link
