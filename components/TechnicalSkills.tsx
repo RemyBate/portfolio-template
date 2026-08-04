@@ -17,6 +17,7 @@ import {
 } from "react-icons/fa";
 import {
   SiAnthropic,
+  SiAstro,
   SiGithubcopilot,
   SiGodotengine,
   SiJavascript,
@@ -48,6 +49,7 @@ const skillCategories: Array<{
   {
     id: "frontend",
     skills: [
+      { name: "Astro", Icon: SiAstro, color: "#BC52EE" },
       { name: "Next.js", Icon: SiNextdotjs, color: "#111827" },
       { name: "React", Icon: FaReact, color: "#61DAFB" },
       { name: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
@@ -118,18 +120,19 @@ export default function TechnicalSkills() {
   return (
     <div className="mt-16 pt-14 border-t border-gray-300">
       <div className="text-center mb-12 md:mb-14">
-        <h3 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-gray-800 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold text-gray-800 tracking-tight">
           {t("about.skillsHeading")}
-        </h3>
+        </h2>
         <div className="w-16 h-1.5 bg-violet-600 mx-auto mt-5"></div>
+        <p className="mt-5 text-gray-600 text-lg max-w-2xl mx-auto">{t("about.skillsIntro")}</p>
       </div>
 
       <div className="space-y-10 md:space-y-12 w-full">
         {skillCategories.map((category) => (
           <div key={category.id}>
-            <h4 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 md:mb-5 pl-1">
+            <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-4 md:mb-5 pl-1">
               {t(`about.skillsCategories.${category.id}`)}
-            </h4>
+            </h3>
 
             <div className="flex flex-wrap gap-3 md:gap-4">
               {category.skills.map((skill) => {
@@ -162,3 +165,4 @@ export default function TechnicalSkills() {
     </div>
   );
 }
+
