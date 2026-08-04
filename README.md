@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RemyDev Portfolio
 
-## Getting Started
+Personal portfolio website for **Remy Bate Mbu** (`https://remydev.de`).
 
-First, run the development server:
+## Tech stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Nodemailer (contact form email delivery)
+- react-icons
+
+## Features
+
+- English / German language switch (stored in `localStorage`)
+- Pages: Home, About, Projects, Resume, Contact, Impressum, Datenschutz
+- Reusable games privacy policy at `/games/privacy-policy`
+- SEO: metadata, Open Graph, canonical URLs, JSON-LD, sitemap, robots.txt
+- Contact form API at `/api/contact`
+- Responsive layout and accessible navigation
+
+## Local setup
+
+```bash
+npm install
+cp .env.example .env.local
+```
+
+Fill in the environment variables in `.env.local` (see below), then:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Name | Required | Purpose |
+|------|----------|---------|
+| `GMAIL_USER` | Yes (for contact form) | Gmail address used by Nodemailer |
+| `GMAIL_APP_PASSWORD` | Yes (for contact form) | Gmail App Password for SMTP |
 
-## Learn More
+Do not commit `.env`, `.env.local`, or any real secrets.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server (Turbopack) |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run typecheck` | Run TypeScript (`tsc --noEmit`) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+Deployed on [Vercel](https://vercel.com) from the GitHub repository:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`https://github.com/RemyBate/portfolio-template`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Production domain: `https://remydev.de`
+
+Configure `GMAIL_USER` and `GMAIL_APP_PASSWORD` in the Vercel project environment variables so the contact form works in production.
+
+## Important public routes
+
+- `/` – Home
+- `/about` – About
+- `/projects` – Projects
+- `/resume` – CV / résumé (EN/DE PDFs)
+- `/contact` – Contact form
+- `/impressum` – Legal notice
+- `/datenschutz` – Website privacy policy
+- `/games/privacy-policy` – Master privacy policy for RemyDev mobile games
+- `/sitemap.xml` – Sitemap
+- `/robots.txt` – Robots rules

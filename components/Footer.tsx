@@ -10,7 +10,6 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white mt-16">
       <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold">
               Remy<span className="text-violet-400">Dev</span>
@@ -18,7 +17,6 @@ export default function Footer() {
             <p className="mt-3 text-gray-300 leading-7">{t("footer.tagline")}</p>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">{t("footer.quickLinks")}</h4>
             <ul className="space-y-3 text-gray-300">
@@ -50,7 +48,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact / Social */}
           <div>
             <h4 className="text-lg font-semibold mb-4">{t("footer.connect")}</h4>
             <div className="space-y-3 text-gray-300">
@@ -99,6 +96,14 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4">
+            <Link href="/impressum" className="hover:text-violet-400 transition">
+              {t("footer.impressum")}
+            </Link>
+            <Link href="/datenschutz" className="hover:text-violet-400 transition">
+              {t("footer.datenschutz")}
+            </Link>
+          </div>
           © {new Date().getFullYear()} Remy Bate Mbu. {t("footer.rights")}
         </div>
       </div>

@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Games Privacy Policy",
+  title: "Games Privacy Policy | RemyDev",
   description:
-    "Master Privacy Policy for all mobile games, applications, and digital entertainment products published by RemyDev (Remy Mbu).",
+    "Privacy policy for mobile games and digital products published by RemyDev (Remy Mbu). Covers data collection, ads, accounts, and contact details.",
+  alternates: {
+    canonical: "https://remydev.de/games/privacy-policy",
+  },
 };
 
 const SUPPORT_EMAIL = "remymbu12@gmail.com";
