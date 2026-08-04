@@ -182,6 +182,18 @@ const dict = {
         "A selection of websites and web apps I have built for clients and personal use.",
       viewProject: "View Project",
       items: {
+        nexorare: {
+          title: "Nexorare",
+          description:
+            "A multilingual digital agency website presenting professional web development, software solutions, digital services, case studies, and project inquiry features.",
+          imageAlt: "Nexorare digital agency website homepage",
+        },
+        ecoplate: {
+          title: "EcoPlate",
+          description:
+            "A multilingual AgriTech marketplace prototype that connects farmers and vendors with buyers to reduce post-harvest food loss and create sustainable opportunities.",
+          imageAlt: "EcoPlate AgriTech marketplace homepage",
+        },
         dingado: {
           title: "Dingado",
           description:
@@ -488,6 +500,18 @@ const dict = {
         "Eine Auswahl an Websites und Web-Apps, die ich für Kunden und eigene Projekte umgesetzt habe.",
       viewProject: "Projekt ansehen",
       items: {
+        nexorare: {
+          title: "Nexorare",
+          description:
+            "Eine mehrsprachige Website für eine Digitalagentur mit professioneller Webentwicklung, Softwarelösungen, digitalen Dienstleistungen, Fallstudien und Projektanfragen.",
+          imageAlt: "Startseite der Nexorare-Digitalagentur",
+        },
+        ecoplate: {
+          title: "EcoPlate",
+          description:
+            "Ein mehrsprachiger AgriTech-Marktplatz-Prototyp, der Landwirte und Händler mit Käufern verbindet, um Lebensmittelverluste nach der Ernte zu reduzieren und nachhaltige Chancen zu schaffen.",
+          imageAlt: "Startseite des EcoPlate-AgriTech-Marktplatzes",
+        },
         dingado: {
           title: "Dingado",
           description:

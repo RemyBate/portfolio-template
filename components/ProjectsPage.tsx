@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 type ProjectPageId =
+  | "nexorare"
+  | "ecoplate"
   | "dingado"
   | "skyrivers"
   | "portfolio"
@@ -16,6 +18,18 @@ const projects: Array<{
   link: string;
   tech: string[];
 }> = [
+  {
+    id: "nexorare",
+    image: "/projects/nexorare.webp",
+    link: "https://nexorare.vercel.app",
+    tech: ["Astro", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: "ecoplate",
+    image: "/projects/ecoplate.webp",
+    link: "https://eco-plate-rho.vercel.app",
+    tech: ["Astro", "TypeScript", "Tailwind CSS"],
+  },
   {
     id: "dingado",
     image: "/projects/dingado.png",
