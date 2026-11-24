@@ -1,11 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import TechnicalSkills from "@/components/TechnicalSkills";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ageInYears } from "@/lib/age";
 
 export default function About() {
   const { t } = useLanguage();
+  const [age, setAge] = useState<number | null>(null);
+
+  useEffect(() => {
+    setAge(ageInYears(new Date()));
+  }, []);
 
   return (
     <section id="about" className="bg-[#f3f3f3] py-20">
@@ -43,7 +50,7 @@ export default function About() {
                 <span className="font-bold">{t("about.birthday")}</span> 12 July 1983
               </p>
               <p>
-                <span className="font-bold">{t("about.age")}</span> 42
+                <span className="font-bold">{t("about.age")}</span> {age}
               </p>
               <p>
                 <span className="font-bold">{t("about.website")}</span> https://remydev.de
