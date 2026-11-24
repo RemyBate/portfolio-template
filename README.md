@@ -69,7 +69,7 @@ Configure `GMAIL_USER` and `GMAIL_APP_PASSWORD` in the Vercel project environmen
 - `/` – Home
 - `/about` – About
 - `/projects` – Projects
-- `/resume` – CV / résumé (EN/DE PDFs)
+- `/resume` – professional profile; CV available on request
 - `/contact` – Contact form
 - `/impressum` – Legal notice
 - `/datenschutz` – Website privacy policy

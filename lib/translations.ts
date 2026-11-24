@@ -21,7 +21,7 @@ const dict = {
       resume: {
         title: "Resume | Remy Bate Mbu – Application Developer",
         description:
-          "View or download the resume of Remy Bate Mbu, including education, technical skills, projects, and work background.",
+          "Professional profile of Remy Bate Mbu, a web, application, and game developer in Mülheim an der Ruhr, Germany. View projects or request the full CV.",
       },
       contact: {
         title: "Contact Remy Bate Mbu | Hire a Web Developer",
@@ -113,7 +113,8 @@ const dict = {
       degree: "Degree:",
       phone: "Phone:",
       email: "Email:",
-      address: "Address:",
+      address: "Location:",
+      addressValue: "Mülheim an der Ruhr, Germany",
       freelance: "Freelance:",
       degreeValue: "Bachelor's degree",
       freelanceValue: "Available",
@@ -173,6 +174,11 @@ const dict = {
       submit: "Send Message",
       sending: "Sending...",
       success: "Thanks — your message was sent. I will get back to you soon.",
+      cvSubject: "CV request",
+      cvMessage:
+        "Hello Remy, could you please send me your CV? Here are the details of the opportunity.",
+      cvSuccess:
+        "Thank you. Your CV request was sent. I will review it and send my CV to you personally.",
       error:
         "Your message could not be sent. Please try again or email me directly.",
     },
@@ -228,11 +234,48 @@ const dict = {
     },
     resumePage: {
       heading: "Resume",
-      intro:
-        "My resume covers my education, technical skills, projects, and work history. Open it in the browser or download the PDF below.",
-      open: "Open Resume",
-      download: "Download PDF",
-      iframeTitle: "Resume of Remy Bate Mbu, application developer",
+      title: "Web, Application & Game Developer",
+      location: "Mülheim an der Ruhr, Germany",
+      profileHeading: "Profile",
+      profileLead:
+        "I build websites, web applications, and games that turn ideas into working products. My work combines responsive interfaces, database-backed functionality, and interactive experiences, with attention to usability and maintainable code.",
+      profileProjects:
+        "My projects include online marketplaces, service platforms, finance applications, e-commerce websites, and games. I work across frontend and backend development using JavaScript, TypeScript, PHP, React, Next.js, Astro, and MySQL. I also build websites and online shops with WordPress and WooCommerce, and develop games with Godot.",
+      profileApproach:
+        "Whether I’m building a business application or a game, I enjoy connecting the interface with the logic behind it. I focus on making features clear to use and developing solutions around the needs of the project.",
+      skillsHeading: "Technical skills",
+      skills: {
+        languages: {
+          label: "Languages",
+          value: "JavaScript, TypeScript, PHP, HTML, CSS, SQL",
+        },
+        web: {
+          label: "Web development",
+          value: "React, Next.js, Astro, Tailwind CSS",
+        },
+        data: {
+          label: "Databases and data access",
+          value: "MySQL, Prisma",
+        },
+        commerce: {
+          label: "Websites and e-commerce",
+          value: "WordPress, WooCommerce",
+        },
+        games: {
+          label: "Game development",
+          value: "Godot",
+        },
+        tools: {
+          label: "Development tools",
+          value: "Git, GitHub, Vercel",
+        },
+      },
+      togetherHeading: "Let’s work together",
+      togetherBody:
+        "I welcome opportunities to join a development team and collaborate on freelance projects. Explore my projects to see my work, or request my full CV to learn more about my experience.",
+      viewProjects: "View Projects",
+      requestCv: "Request my CV",
+      linkedin: "LinkedIn",
     },
     impressum: {
       heading: "Legal Notice (Impressum)",
@@ -338,7 +381,7 @@ const dict = {
       resume: {
         title: "Lebenslauf | Remy Bate Mbu – Anwendungsentwickler",
         description:
-          "Lebenslauf von Remy Bate Mbu ansehen oder herunterladen – mit Ausbildung, technischen Skills, Projekten und Berufserfahrung.",
+          "Profil von Remy Bate Mbu, Web-, Anwendungs- und Spieleentwicklerin in Mülheim an der Ruhr, Deutschland. Projekte ansehen oder den vollständigen Lebenslauf anfragen.",
       },
       contact: {
         title: "Kontakt Remy Bate Mbu | Webentwickler beauftragen",
@@ -430,7 +473,8 @@ const dict = {
       degree: "Abschluss:",
       phone: "Telefon:",
       email: "E-Mail:",
-      address: "Adresse:",
+      address: "Standort:",
+      addressValue: "Mülheim an der Ruhr, Deutschland",
       freelance: "Freelance:",
       degreeValue: "Bachelor",
       freelanceValue: "Verfügbar",
@@ -491,6 +535,11 @@ const dict = {
       sending: "Wird gesendet...",
       success:
         "Danke — Ihre Nachricht wurde gesendet. Ich melde mich bald bei Ihnen.",
+      cvSubject: "Anfrage zum Lebenslauf",
+      cvMessage:
+        "Guten Tag Frau Bate Mbu, könnten Sie mir bitte Ihren Lebenslauf zusenden? Hier sind die Angaben zur angebotenen Stelle.",
+      cvSuccess:
+        "Vielen Dank. Ihre Anfrage zum Lebenslauf wurde gesendet. Ich prüfe sie und sende Ihnen den Lebenslauf persönlich zu.",
       error:
         "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.",
     },
@@ -546,11 +595,48 @@ const dict = {
     },
     resumePage: {
       heading: "Lebenslauf",
-      intro:
-        "Mein Lebenslauf enthält Ausbildung, technische Fähigkeiten, Projekte und Berufserfahrung. Sie können ihn im Browser öffnen oder als PDF herunterladen.",
-      open: "Lebenslauf öffnen",
-      download: "PDF herunterladen",
-      iframeTitle: "Lebenslauf von Remy Bate Mbu, Anwendungsentwickler",
+      title: "Web-, Anwendungs- und Spieleentwicklerin",
+      location: "Mülheim an der Ruhr, Deutschland",
+      profileHeading: "Profil",
+      profileLead:
+        "Ich entwickle Websites, Webanwendungen und Spiele, die aus Ideen funktionierende Produkte machen. Meine Arbeit verbindet responsive Oberflächen, datenbankgestützte Funktionen und interaktive Erlebnisse – mit Blick auf Benutzerfreundlichkeit und wartbaren Code.",
+      profileProjects:
+        "Zu meinen Projekten gehören Online-Marktplätze, Serviceplattformen, Finanzanwendungen, E-Commerce-Websites und Spiele. Ich arbeite in der Frontend- und Backend-Entwicklung mit JavaScript, TypeScript, PHP, React, Next.js, Astro und MySQL. Außerdem setze ich Websites und Onlineshops mit WordPress und WooCommerce um und entwickle Spiele mit Godot.",
+      profileApproach:
+        "Ob ich eine Geschäftsanwendung oder ein Spiel entwickle: Ich verbinde gern die Oberfläche mit der Logik dahinter. Ich achte darauf, dass Funktionen klar bedienbar sind, und entwickle Lösungen entlang der Anforderungen des Projekts.",
+      skillsHeading: "Technische Fähigkeiten",
+      skills: {
+        languages: {
+          label: "Sprachen",
+          value: "JavaScript, TypeScript, PHP, HTML, CSS, SQL",
+        },
+        web: {
+          label: "Webentwicklung",
+          value: "React, Next.js, Astro, Tailwind CSS",
+        },
+        data: {
+          label: "Datenbanken und Datenzugriff",
+          value: "MySQL, Prisma",
+        },
+        commerce: {
+          label: "Websites und E-Commerce",
+          value: "WordPress, WooCommerce",
+        },
+        games: {
+          label: "Spieleentwicklung",
+          value: "Godot",
+        },
+        tools: {
+          label: "Entwicklungswerkzeuge",
+          value: "Git, GitHub, Vercel",
+        },
+      },
+      togetherHeading: "Lassen Sie uns zusammenarbeiten",
+      togetherBody:
+        "Ich freue mich über die Möglichkeit, in einem Entwicklungsteam mitzuarbeiten und an Freelance-Projekten mitzuwirken. Sehen Sie sich meine Projekte an oder fordern Sie meinen vollständigen Lebenslauf an, um mehr über meine Erfahrung zu erfahren.",
+      viewProjects: "Projekte ansehen",
+      requestCv: "Lebenslauf anfragen",
+      linkedin: "LinkedIn",
     },
     impressum: {
       heading: "Impressum",

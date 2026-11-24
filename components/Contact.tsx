@@ -1,12 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { translate, type Locale } from "@/lib/translations";
 
 const CONTACT_EMAIL = "remybatem@gmail.com";
 
+const CV_LOCALES: Locale[] = ["en", "de"];
+
+function cvTemplates() {
+  return {
+    subjects: new Set(CV_LOCALES.map((locale) => translate(locale, "contact.cvSubject"))),
+    messages: new Set(CV_LOCALES.map((locale) => translate(locale, "contact.cvMessage"))),
+  };
+}
+
 export default function Contact() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const searchParams = useSearchParams();
+  const isCvRequest = searchParams.get("request") === "cv";
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,9 +27,62 @@ export default function Contact() {
     message: "",
   });
 
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [notice, setNotice] = useState<"success" | "cvSuccess" | "error" | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const skipTemplateSync = useRef(false);
+  const hasScrolledToForm = useRef(false);
+  const lastCvRequest = useRef<boolean | null>(null);
+
+  useEffect(() => {
+    const requestChanged =
+      lastCvRequest.current !== null && lastCvRequest.current !== isCvRequest;
+    lastCvRequest.current = isCvRequest;
+
+    if (requestChanged) {
+      setNotice(null);
+    }
+
+    if (!isCvRequest) {
+      hasScrolledToForm.current = false;
+    }
+
+    if (skipTemplateSync.current && !requestChanged) {
+      skipTemplateSync.current = false;
+      return;
+    }
+
+    skipTemplateSync.current = false;
+
+    const templates = cvTemplates();
+
+    setFormData((current) => {
+      const subjectIsTemplate =
+        current.subject === "" || templates.subjects.has(current.subject);
+      const messageIsTemplate =
+        current.message === "" || templates.messages.has(current.message);
+
+      if (!isCvRequest) {
+        if (!subjectIsTemplate && !messageIsTemplate) return current;
+        const subject = subjectIsTemplate ? "" : current.subject;
+        const message = messageIsTemplate ? "" : current.message;
+        if (subject === current.subject && message === current.message) return current;
+        return { ...current, subject, message };
+      }
+
+      const subject = subjectIsTemplate ? t("contact.cvSubject") : current.subject;
+      const message = messageIsTemplate ? t("contact.cvMessage") : current.message;
+      if (subject === current.subject && message === current.message) return current;
+      return { ...current, subject, message };
+    });
+
+    if (!isCvRequest || hasScrolledToForm.current) return;
+
+    hasScrolledToForm.current = true;
+    document.getElementById("contact-form")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, [isCvRequest, locale, t]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,8 +95,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSuccessMessage("");
-    setErrorMessage("");
+    setNotice(null);
     setIsSubmitting(true);
 
     try {
@@ -48,7 +113,8 @@ export default function Contact() {
         throw new Error(data?.error ?? "Failed to send message");
       }
 
-      setSuccessMessage(t("contact.success"));
+      skipTemplateSync.current = true;
+      setNotice(isCvRequest ? "cvSuccess" : "success");
       setFormData({
         name: "",
         email: "",
@@ -56,7 +122,7 @@ export default function Contact() {
         message: "",
       });
     } catch {
-      setErrorMessage(t("contact.error"));
+      setNotice("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -78,7 +144,9 @@ export default function Contact() {
           <div className="overflow-hidden rounded-lg shadow-sm border border-gray-200">
             <iframe
               title={t("contact.mapTitle")}
-              src="https://www.google.com/maps?q=M%C3%BClheim%20an%20der%20Ruhr,%20Germany&z=13&output=embed"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(
+                t("contact.locationLines").replace(/\n/g, " ")
+              )}&z=13&output=embed`}
               width="100%"
               height="320"
               style={{ border: 0 }}
@@ -139,13 +207,17 @@ export default function Contact() {
                 <h3 className="text-2xl font-semibold text-gray-900">
                   {t("contact.callHeading")}
                 </h3>
-                <p className="text-gray-700 mt-2">+49 1520 8520081</p>
+                <p className="text-gray-700 mt-2">
+                  <a href="tel:+4915208520081" className="hover:text-violet-600 transition">
+                    +49 1520 8520081
+                  </a>
+                </p>
               </div>
             </div>
           </div>
 
           {/* RIGHT SIDE FORM */}
-          <form className="space-y-5" onSubmit={handleSubmit}>
+          <form id="contact-form" className="space-y-5 scroll-mt-28" onSubmit={handleSubmit}>
             <div className="grid sm:grid-cols-2 gap-5">
               <input
                 type="text"
@@ -213,13 +285,17 @@ export default function Contact() {
               </button>
             </div>
 
-            {successMessage && (
-              <p className="text-green-600 font-medium pt-2">{successMessage}</p>
-            )}
+            {notice === "success" || notice === "cvSuccess" ? (
+              <p className="text-green-600 font-medium pt-2" role="status">
+                {t(`contact.${notice}`)}
+              </p>
+            ) : null}
 
-            {errorMessage && (
-              <p className="text-red-600 font-medium pt-2">{errorMessage}</p>
-            )}
+            {notice === "error" ? (
+              <p className="text-red-600 font-medium pt-2" role="alert">
+                {t("contact.error")}
+              </p>
+            ) : null}
           </form>
         </div>
       </div>

@@ -53,14 +53,23 @@ export default function About() {
                 {t("about.degreeValue")}
               </p>
               <p>
-                <span className="font-bold">{t("about.phone")}</span> +49 15208520081
+                <span className="font-bold">{t("about.phone")}</span>{" "}
+                <a href="tel:+4915208520081" className="hover:text-violet-600 transition">
+                  +49 15208520081
+                </a>
               </p>
               <p>
-                <span className="font-bold">{t("about.email")}</span> remybatem@gmail.com
+                <span className="font-bold">{t("about.email")}</span>{" "}
+                <a
+                  href="mailto:remybatem@gmail.com"
+                  className="hover:text-violet-600 transition"
+                >
+                  remybatem@gmail.com
+                </a>
               </p>
-              <p>
-                <span className="font-bold">{t("about.address")}</span> Eichenber 45, 45473,
-                Mülheim an der Ruhr, Deutschland
+              <p className="sm:col-span-2">
+                <span className="font-bold">{t("about.address")}</span>{" "}
+                {t("about.addressValue")}
               </p>
               <p>
                 <span className="font-bold">{t("about.freelance")}</span>{" "}
