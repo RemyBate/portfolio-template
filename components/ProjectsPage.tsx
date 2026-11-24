@@ -9,7 +9,6 @@ type ProjectPageId =
   | "dingado"
   | "skyrivers"
   | "portfolio"
-  | "breedbabies"
   | "spendwise";
 
 const projects: Array<{
@@ -39,7 +38,7 @@ const projects: Array<{
   {
     id: "skyrivers",
     image: "/projects/skyrivers.png",
-    link: "https://skyrivers-limited.com",
+    link: "https://skyriverslimited.com/",
     tech: ["WordPress", "Elementor"],
   },
   {
@@ -47,12 +46,6 @@ const projects: Array<{
     image: "/projects/portfolio.png",
     link: "#",
     tech: ["Next.js", "React", "Tailwind CSS"],
-  },
-  {
-    id: "breedbabies",
-    image: "/projects/breedbabies.png",
-    link: "https://breedbabiesdaily.com/index.php",
-    tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
   },
   {
     id: "spendwise",

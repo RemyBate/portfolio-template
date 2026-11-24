@@ -218,12 +218,6 @@ const dict = {
             "Personal portfolio built with Next.js, React, and Tailwind CSS to present projects and skills.",
           imageAlt: "Screenshot of the RemyDev portfolio website",
         },
-        breedbabies: {
-          title: "Business Website (Bootstrap)",
-          description:
-            "Responsive business site based on a Bootstrap template with custom styling and interactive sections.",
-          imageAlt: "Screenshot of the BreedBabies Daily business website",
-        },
         spendwise: {
           title: "SpendWise",
           description:
@@ -578,12 +572,6 @@ const dict = {
           description:
             "Persönliches Portfolio mit Next.js, React und Tailwind CSS zur Präsentation von Projekten und Skills.",
           imageAlt: "Screenshot der RemyDev Portfolio-Website",
-        },
-        breedbabies: {
-          title: "Business-Website (Bootstrap)",
-          description:
-            "Responsive Business-Website auf Bootstrap-Basis mit eigenem Styling und interaktiven Bereichen.",
-          imageAlt: "Screenshot der BreedBabies Daily Business-Website",
         },
         spendwise: {
           title: "SpendWise",
